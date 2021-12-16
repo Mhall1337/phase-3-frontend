@@ -1,28 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function App() {
+  useEffect(()=>{
+    fetch("http://localhost:9292/launches")
+    .then(r => r.json())
+    .then(launches => console.log(launches))
+  },[])
+
   return (
     <div className="App">
-      
         <Home />
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
