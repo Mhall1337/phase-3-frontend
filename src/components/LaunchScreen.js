@@ -19,7 +19,7 @@ function LaunchScreen(){
     }
         
 
-//   console.log(launches[1])
+
 return(
     <div>
        {/* <CreateLaunch /> */}
