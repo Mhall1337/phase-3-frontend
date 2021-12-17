@@ -1,7 +1,7 @@
 import './App.css';
 import LaunchScreen from './components/LaunchScreen';
 import Home from './components/Home';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 function App() {
 
