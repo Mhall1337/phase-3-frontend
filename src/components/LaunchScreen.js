@@ -30,6 +30,7 @@ return(
             <p><strong>Outcome Details:</strong> {launch.details}</p>
             <p>Flight number: {launch.flight_number}</p>
             <button onClick={()=>deleteLaunch(launch)}>Delete Launch</button>
+            <hr></hr>
            </div> 
        )}
     </div>
