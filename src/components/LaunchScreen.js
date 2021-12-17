@@ -22,7 +22,7 @@ function LaunchScreen(){
 //   console.log(launches[1])
 return(
     <div>
-       
+       {/* <CreateLaunch /> */}
        {launches.map((launch, index)=>
            <div key={index}>
             <h4>Name:{launch.name}</h4>
