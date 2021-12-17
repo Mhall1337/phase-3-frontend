@@ -25,10 +25,10 @@ return(
        {/* <CreateLaunch /> */}
        {launches.map((launch, index)=>
            <div key={index}>
-            <h4>Name:{launch.name}</h4>
-            <p>Flight was successful:{launch.success}</p>
+            <p><strong>Name: </strong>{launch.name}</p>
+            <p><strong>Flight was successful:</strong>{launch.success}</p>
             <p><strong>Outcome Details:</strong> {launch.details}</p>
-            <p>Flight number: {launch.flight_number}</p>
+            <p><strong>Flight number:</strong> {launch.flight_number}</p>
             <button onClick={()=>deleteLaunch(launch)}>Delete Launch</button>
             <hr></hr>
            </div> 
