@@ -3,7 +3,10 @@ import { useEffect } from "react"
 import CreateLaunch from './CreateLaunch.js'
 
 function LaunchScreen(){
+    
     const [launches, setLaunches] = useState([])
+
+
     useEffect(()=>{
       fetch("http://localhost:9292/launches")
       .then((r) => r.json())
@@ -19,17 +22,17 @@ function LaunchScreen(){
             .then()
     }
     function defineSuccess(launchSuccess){
-     if(launchSuccess == 0){
-           return 'false'
-        }else if(launchSuccess == 1){
+     if(launchSuccess == true){
            return 'true'
+        }else if(launchSuccess == false){
+           return 'false'
         }
     }
 
 
 return(
     <div>
-       <CreateLaunch />
+       <CreateLaunch launches={launches} setLaunches={setLaunches}/>
        {launches.map((launch, index)=>
            <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>

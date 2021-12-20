@@ -1,4 +1,4 @@
-function CreateLaunch(){
+function CreateLaunch({launches, setLaunches}){
     function addNewLaunch (e){
         e.preventDefault()
         const newLaunch = {
@@ -16,7 +16,8 @@ function CreateLaunch(){
         body: JSON.stringify(newLaunch)
     })
     .then(resp => resp.json())
-    .then(resp => console.log(resp))
+    .then(postedLaunch => {const addNewLaunch = Object.assign(launches, postedLaunch)
+    setLaunches(addNewLaunch)})
     }
     return(
         <div>
