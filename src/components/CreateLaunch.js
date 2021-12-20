@@ -14,9 +14,17 @@ function CreateLaunch(){
     return(
         <div>
             <form>
-                <input></input>
+                <label>Launch Name:</label>
+                <input type='text' placeholder='Launch Name'></input>
+                <label>Flight Success:</label>
+                <input type='text' placeholder='Flight Success'></input>
+                <label>Outcome Details:</label>
+                <input type='text' placeholder='Outcome Details:'></input>
+                <input type='submit'></input>
             </form>
             
         </div>
     )
 }
+
+export default CreateLaunch

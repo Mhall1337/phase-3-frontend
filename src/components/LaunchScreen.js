@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import CreateLaunch from './CreateLaunch.js'
 
 function LaunchScreen(){
     const [launches, setLaunches] = useState([])
@@ -22,7 +23,7 @@ function LaunchScreen(){
 
 return(
     <div>
-       {/* <CreateLaunch /> */}
+       <CreateLaunch />
        {launches.map((launch, index)=>
            <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>
