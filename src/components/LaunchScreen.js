@@ -18,8 +18,12 @@ function LaunchScreen(){
             .then(resp => resp.json())
             .then()
     }
-    function defineSuccess(){
-        
+    function defineSuccess(launchSuccess){
+     if(launchSuccess == 0){
+           return 'false'
+        }else if(launchSuccess == 1){
+           return 'true'
+        }
     }
 
 
@@ -29,7 +33,7 @@ return(
        {launches.map((launch, index)=>
            <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>
-            <p><strong>Flight was successful:</strong>{}</p>
+            <p><strong>Lift off was successful:</strong>{defineSuccess(launch.success)}</p>
             <p><strong>Outcome Details:</strong> {launch.details}</p>
             <p><strong>Flight number:</strong> {launch.flight_number}</p>
             <button onClick={()=>deleteLaunch(launch)}>Delete Launch</button>
