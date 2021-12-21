@@ -6,7 +6,6 @@ function LaunchScreen(){
     
     const [launches, setLaunches] = useState([])
 
-    console.log(launches[0])
     useEffect(()=>{
       fetch("http://localhost:9292/launches")
       .then((r) => r.json())
