@@ -1,6 +1,11 @@
+import Companies from "./Companies"
+
 function Home(){
     return(
-        <h1>SpaceX Launch Compilation</h1>
+        <div>
+          <h1>SpaceX Launch Compilation</h1>
+          <Companies />
+        </div>
     )
 }
 
