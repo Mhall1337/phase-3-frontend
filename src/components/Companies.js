@@ -3,6 +3,7 @@ import CreateCompany from "./CreateCompany";
 
 function Companies(){
     const [allCompanies, setCompanies] = useState([])
+
     useEffect(()=>{
         fetch("http://localhost:9292/companies")
         .then(resp => resp.json())
@@ -17,7 +18,10 @@ function Companies(){
         <div>
             <CreateCompany handleNewCompany={handleNewCompany}/>
             {allCompanies.map((company, index) => 
-                <p key={index}>{company.company_name}</p>
+            <div>
+                <p key={index}>{company.company_name}<button>remove</button></p>
+                
+            </div>
             )}
         </div>
     )
