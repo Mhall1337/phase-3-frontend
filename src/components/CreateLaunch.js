@@ -1,6 +1,6 @@
 function CreateLaunch({addLaunch}){
 
-
+    
     function handleSubmit (e){
         e.preventDefault()
         const newLaunch = {
@@ -31,9 +31,13 @@ function CreateLaunch({addLaunch}){
             <select>
                     <option value='true'>True</option>
                     <option value ='false'>False</option>
-                </select>
+            </select>
             <label>Outcome Details:</label>
                 <input type='text' name='outcomeDetails' placeholder="Outcome Details"></input>
+            <label>Company Name:</label>
+                <select>
+                    <option></option>    
+                </select>    
                 <input type='submit'></input>
           </form>
         </div>
