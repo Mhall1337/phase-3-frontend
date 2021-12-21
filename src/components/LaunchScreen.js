@@ -6,7 +6,7 @@ function LaunchScreen(){
     
     const [launches, setLaunches] = useState([])
 
-
+    console.log(launches[0])
     useEffect(()=>{
       fetch("http://localhost:9292/launches")
       .then((r) => r.json())
@@ -22,21 +22,23 @@ function LaunchScreen(){
             .then()
     }
     function defineSuccess(launchSuccess){
-     if(launchSuccess == true){
-           return 'true'
-        }else if(launchSuccess == false){
-           return 'false'
+     if(launchSuccess === true){
+           return 'Lift off was successful'
+        }else if(launchSuccess === false){
+           return 'Rocket failed to lift off'
         }
     }
-
+    function addLaunch(newLaunch){
+        setLaunches([...launches, newLaunch])
+    }
 
 return(
     <div>
-       <CreateLaunch launches={launches} setLaunches={setLaunches}/>
+       <CreateLaunch addLaunch={addLaunch}/>
        {launches.map((launch, index)=>
            <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>
-            <p><strong>Lift off was successful:</strong>{defineSuccess(launch.success)}</p>
+            <p><strong>Launch success:</strong>{defineSuccess(launch.success)}</p>
             <p><strong>Outcome Details:</strong> {launch.details}</p>
             <p><strong>Flight number:</strong> {launch.flight_number}</p>
             <button onClick={()=>deleteLaunch(launch)}>Delete Launch</button>
