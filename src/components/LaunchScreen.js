@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import CreateLaunch from './CreateLaunch.js'
 
-function LaunchScreen(){
+function LaunchScreen({allCompanies}){
     
     const [launches, setLaunches] = useState([])
 
@@ -33,16 +33,17 @@ function LaunchScreen(){
 
 return(
     <div>
-       <CreateLaunch addLaunch={addLaunch}/>
+       <CreateLaunch addLaunch={addLaunch} allCompanies={allCompanies}/>
        {launches.map((launch, index)=>
-           <div key={index}>
+         <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>
             <p><strong>Launch success:</strong>{defineSuccess(launch.success)}</p>
             <p><strong>Outcome Details:</strong> {launch.details}</p>
             <p><strong>Flight number:</strong> {launch.flight_number}</p>
+            <p><strong>Company:</strong>{launch.company.company_name}</p>
             <button onClick={()=>deleteLaunch(launch)}>Delete Launch</button>
             <hr></hr>
-           </div> 
+         </div> 
        )}
     </div>
 )

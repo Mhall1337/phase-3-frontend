@@ -1,4 +1,4 @@
-function CreateLaunch({addLaunch}){
+function CreateLaunch({addLaunch, allCompanies}){
 
     
     function handleSubmit (e){
@@ -7,6 +7,7 @@ function CreateLaunch({addLaunch}){
             name : e.target[0].value,
             details: e.target[2].value,
             success: e.target[1].value,
+            company: e.target[3].value
         }
         e.target.reset()
     fetch("http://localhost:9292/launches",{
@@ -24,6 +25,7 @@ function CreateLaunch({addLaunch}){
 
     return(
         <div>
+            <h1>Create A Launch</h1>
           <form onSubmit={handleSubmit}>
             <label>Launch Name:</label>
                 <input type='text' name="launchName" placeholder='Launch Name'></input>
@@ -36,7 +38,7 @@ function CreateLaunch({addLaunch}){
                 <input type='text' name='outcomeDetails' placeholder="Outcome Details"></input>
             <label>Company Name:</label>
                 <select>
-                    <option></option>    
+                    {allCompanies.map((company, index) => <option key={index}>{company.company_name}</option>)}   
                 </select>    
                 <input type='submit'></input>
           </form>

@@ -1,10 +1,10 @@
 function CreateCompany({handleNewCompany}){
     function handleAddCompany(){
         const company = {
-            company_name: document.querySelector("#root > div > div:nth-child(1) > div > div > label > input[type=text]").value
+            company_name: document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > label > input[type=text]").value
         }
         console.log(company)
-        document.querySelector("#root > div > div:nth-child(1) > div:nth-child(2) > label > input[type=text]").value = ''
+        document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > label > input[type=text]").value = ''
         
         fetch("http://localhost:9292/companies",{
             method: "POST",
