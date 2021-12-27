@@ -27,10 +27,9 @@ function LaunchScreen({allCompanies}){
            return 'Rocket failed to lift off'
         }
     }
-    function addLaunch(newLaunch){
+    function addLaunch(newLaunch){ 
         setLaunches([...launches, newLaunch])
     }
-
 return(
     <div>
        <CreateLaunch addLaunch={addLaunch} allCompanies={allCompanies}/>

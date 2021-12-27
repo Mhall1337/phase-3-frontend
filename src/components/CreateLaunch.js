@@ -7,7 +7,7 @@ function CreateLaunch({addLaunch, allCompanies}){
             name : e.target[0].value,
             details: e.target[2].value,
             success: e.target[1].value,
-            company: e.target[3].value
+            companyName: e.target[3].value
         }
         e.target.reset()
     fetch("http://localhost:9292/launches",{
