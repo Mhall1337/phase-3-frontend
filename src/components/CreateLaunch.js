@@ -1,4 +1,4 @@
-function CreateLaunch({addLaunch, allCompanies}){
+function CreateLaunch({addLaunchAfterPost, allCompanies}){
 
     
     function handleSubmit (e){
@@ -19,7 +19,7 @@ function CreateLaunch({addLaunch, allCompanies}){
         body: JSON.stringify(newLaunch)
     })
     .then(resp => resp.json())
-    .then(resp => addLaunch(resp))
+    .then(resp => addLaunchAfterPost(resp))
     }
 
 

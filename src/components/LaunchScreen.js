@@ -1,19 +1,17 @@
-import { useState } from "react"
+
 import { useEffect } from "react"
 import CreateLaunch from './CreateLaunch.js'
 
-function LaunchScreen({allCompanies}){
-    
-    const [launches, setLaunches] = useState([])
+function LaunchScreen({allCompanies, addLaunchAfterPost, removeLaunchAfterDelete, renderLaunches, launches}){
 
     useEffect(()=>{
       fetch("http://localhost:9292/launches")
       .then((r) => r.json())
-      .then(launches => setLaunches(launches))
+      .then(launches => renderLaunches(launches))
     },[])
 
     function deleteLaunch({id}){
-        setLaunches(launches.filter(launch => launch.id !== id))
+        removeLaunchAfterDelete(id)
         fetch(`http://localhost:9292/launches/${id}`,{
             method: 'DELETE'
         })
@@ -27,12 +25,10 @@ function LaunchScreen({allCompanies}){
            return 'Rocket failed to lift off'
         }
     }
-    function addLaunch(newLaunch){ 
-        setLaunches([...launches, newLaunch])
-    }
+  
 return(
     <div>
-       <CreateLaunch addLaunch={addLaunch} allCompanies={allCompanies}/>
+       <CreateLaunch addLaunchAfterPost={addLaunchAfterPost} allCompanies={allCompanies}/>
        {launches.map((launch, index)=>
          <div key={index}>
             <p><strong>Name: </strong>{launch.name}</p>
