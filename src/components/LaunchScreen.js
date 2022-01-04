@@ -1,15 +1,10 @@
 
-import { useEffect } from "react"
+
 import CreateLaunch from './CreateLaunch.js'
 
-function LaunchScreen({allCompanies, addLaunchAfterPost, removeLaunchAfterDelete, renderLaunches, launches}){
+function LaunchScreen({allCompanies, addLaunchAfterPost, removeLaunchAfterDelete, launches}){
 
-    useEffect(()=>{
-      fetch("http://localhost:9292/launches")
-      .then((r) => r.json())
-      .then(launches => renderLaunches(launches))
-    },[])
-
+    
     function deleteLaunch({id}){
         removeLaunchAfterDelete(id)
         fetch(`http://localhost:9292/launches/${id}`,{

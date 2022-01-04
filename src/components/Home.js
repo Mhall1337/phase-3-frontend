@@ -19,7 +19,13 @@ function Home(){
             .then(resp => resp.json())
             .then()
     }
-    console.log(launches.length)
+    
+    useEffect(()=>{
+        fetch("http://localhost:9292/launches")
+        .then((r) => r.json())
+        .then(launches => setLaunches(launches))
+      },[])
+  
     useEffect(()=>{
         fetch("http://localhost:9292/companies")
         .then(resp => resp.json())
@@ -32,15 +38,13 @@ function Home(){
     function removeLaunchAfterDelete(id){
         setLaunches(launches.filter(launch => launch.id !== id))
     }
-    function renderLaunches(launchObj){
-        setLaunches(launchObj)
-    }
+    console.log(launches.slice(-1))
 
     return(
         <div>
-          <h1>SpaceX Launch Compilation</h1>
+          <h1>Rocket Launch Compilation</h1>
           <Companies handleNewCompany={handleNewCompany} deleteCompany={deleteCompany} allCompanies={allCompanies}/>
-          <LaunchScreen allCompanies={allCompanies} addLaunchAfterPost={addLaunchAfterPost} removeLaunchAfterDelete={removeLaunchAfterDelete} renderLaunches={renderLaunches} launches={launches} />
+          <LaunchScreen allCompanies={allCompanies} addLaunchAfterPost={addLaunchAfterPost} removeLaunchAfterDelete={removeLaunchAfterDelete} launches={launches} />
         </div>
     )
 }

@@ -1,13 +1,13 @@
 function CreateLaunch({addLaunchAfterPost, allCompanies}){
 
-    
     function handleSubmit (e){
         e.preventDefault()
         const newLaunch = {
             name : e.target[0].value,
             details: e.target[2].value,
             success: e.target[1].value,
-            companyName: e.target[3].value
+            flightNumber: e.target[3].value,
+            companyName: e.target[4].value
         }
         e.target.reset()
     fetch("http://localhost:9292/launches",{
@@ -36,6 +36,8 @@ function CreateLaunch({addLaunchAfterPost, allCompanies}){
             </select>
             <label>Outcome Details:</label>
                 <input type='text' name='outcomeDetails' placeholder="Outcome Details"></input>
+            <label>Flight Number:</label>    
+            <input type='number' placeholder="Flight Number"></input>
             <label>Company Name:</label>
                 <select>
                     {allCompanies.map((company, index) => <option key={index}>{company.company_name}</option>)}   
